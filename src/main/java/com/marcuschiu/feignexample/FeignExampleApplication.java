@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FeignExampleApplication {
 
 	@Autowired
-	private BookServiceClient bookServiceClient;
+	BookServiceClient bookServiceClient;
 
 	public static void main(String[] args) {
 		SpringApplication.run(FeignExampleApplication.class, args);
@@ -24,11 +23,11 @@ public class FeignExampleApplication {
 
 	@GetMapping("/get-books")
 	public String greeting() {
-		return bookServiceClient.greeting();
+		return bookServiceClient.getBooks();
 	}
 
-	@GetMapping("/get-book-service-instance-service-info")
+	@GetMapping("/get-book-service-instance")
 	public String getInstanceServiceInfo() {
-		return bookServiceClient.getInstanceServiceInfo();
+		return bookServiceClient.getLocalServiceInstance();
 	}
 }
