@@ -4,7 +4,7 @@
 
 ### Test Application
 - run <code>book-service</code> application
-- go to <code>http://localhost:8087/book-service-instance</code>
+- go to: http://localhost:8085/book-service-instance
 
 
 ### What happens if <code>book-service</code> is Down?
